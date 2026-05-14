@@ -118,8 +118,8 @@ const PizzaPage = () => {
                   </div>
 
                   <div className="d-flex gap-1">
-                    <button className="btn btn-light">3 cm</button>
-                    <button className="btn btn-light">8 cm</button>
+                    <button className="btn btn-light">10 cm</button>
+                    <button className="btn btn-light">18 cm</button>
                     <button className="btn btn-light">34 cm</button>
                   </div>
                 </div>
