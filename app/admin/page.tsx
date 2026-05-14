@@ -1,7 +1,8 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const AdminFullPage = () => {
   const [email, setEmail] = useState("admin@jobportal.com");
@@ -16,7 +17,7 @@ const AdminFullPage = () => {
 
       router.push("/admin/adminJobs");
 
-      window.location.href = "/admin/adminJobs";
+      window.location.href = "/admin/adminPizza";
     } else {
       alert("Email yoki parol xato!");
     }
@@ -27,16 +28,21 @@ const AdminFullPage = () => {
       <main className="flex-1 flex flex-col items-center justify-center p-10">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="bg-[#1e3a8a] text-white font-bold p-2 rounded-lg text-xl">
-              JP
+            <div className="">
+              <Image
+                src="/image 1.png"
+                alt="React Pizza Logo"
+                height={38}
+                width={38}
+              />
             </div>
-            <h1 className="font-bold! text-black">Job Portal</h1>
+            <h1 className="font-bold! text-black">React Pizza</h1>
           </div>
           <h2 className="text-4xl font-extrabold text-gray-800! mb-2">
             Admin Dashboard
           </h2>
           <p className="text-gray-500 text-lg">
-            Sign in to manage job postings
+            Sign in to manage React Pizza
           </p>
         </div>
 
@@ -50,8 +56,8 @@ const AdminFullPage = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full border border-gray-200 p-2 rounded-lg focus:ring-2! focus:ring-blue-500! outline-none! transition!"
-                placeholder="admin@jobportal.com"
+                className="w-full border border-gray-200 p-2 rounded-lg focus:ring-2! focus:ring-orange-500! outline-none! transition!"
+                placeholder="admin@.com"
                 required
               />
             </div>
@@ -65,14 +71,14 @@ const AdminFullPage = () => {
                 placeholder="Enter your password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full border border-gray-200 p-2 rounded-lg focus:ring-2! focus:ring-blue-500! outline-none! transition!"
+                className="w-full border border-gray-200 p-2 rounded-lg focus:ring-2! focus:ring-orange-500! outline-none! transition!"
                 required
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-blue-700 hover:bg-blue-900 text-white py-2 rounded-2 font-bold! text-lg! transition shadow-lg!"
+              className="w-full bg-orange-700 hover:bg-orange-900 text-white py-2 rounded-2 font-bold! text-lg! transition shadow-lg!"
             >
               Sign In
             </button>

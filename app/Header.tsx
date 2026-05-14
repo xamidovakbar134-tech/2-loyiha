@@ -23,7 +23,10 @@ const Header = () => {
           </div>
         </Link>
 
-        <div>
+        <div className="d-flex gap-3">
+          <Link href={"/admin"}>
+            <button className="btn btn-outline-dark">admin page</button>
+          </Link>
           <Link href={"/cart"} className="text-decoration-none">
             <button
               className="btn btn-orange d-flex align-items-center gap-3 px-4 py-2"

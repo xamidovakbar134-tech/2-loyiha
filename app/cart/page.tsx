@@ -5,9 +5,18 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Header from "../Header";
 
+interface CartItem {
+  id: string | number;
+  title: string; 
+  price: number;
+  imageUrl: string;
+  type: number | string;
+  size: number;
+  count: number;
+}
+
 export default function CartPage() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [items, setItems] = useState<any[]>([]);
+  const [items, setItems] = useState<CartItem[]>([]);
   const [mounted, setMounted] = useState(false);
   const router = useRouter();
 
@@ -19,7 +28,6 @@ export default function CartPage() {
     }
   }, []);
 
-  // Miqdorni o'zgartirish (+ / -)
   const updateCount = (id: string | number, delta: number) => {
     const newItems = items.map((item) => {
       if (item.id === id) {
@@ -124,14 +132,15 @@ export default function CartPage() {
               >
                 <img
                   src={item.imageUrl}
-                  alt={item.name}
+                  alt={item.title}
                   width={80}
                   height={80}
                 />
                 <div>
-                  <h5 className="fw-bold mb-0">{item.name}</h5>
+                  <h5 className="fw-bold mb-0">{item.title}</h5>
                   <p className="text-muted mb-0">
-                    {item.type} тесто, {item.size} см.
+                    {item.type === 0 ? "Тонкое" : "Традиционное"} тесто,{" "}
+                    {item.size} см.
                   </p>
                 </div>
               </div>
@@ -196,12 +205,12 @@ export default function CartPage() {
 
         <div className="d-flex justify-content-between mt-5">
           <Link href="/">
-            <button className="btn btn-outline-secondary px-3 py-2 rounded-pill text-muted fw-bold! border-light-subtle!">
+            <button className="btn btn-outline-secondary px-3 py-2 rounded-pill text-muted fw-bold border-light-subtle">
               ‹ Вернуться назад
             </button>
           </Link>
           <button
-            className="btn text-white px-3 py-1 rounded-pill fw-bold!"
+            className="btn text-white px-3 py-1 rounded-pill fw-bold"
             style={{ backgroundColor: "#fe5f1e" }}
           >
             Оплатить сейчас

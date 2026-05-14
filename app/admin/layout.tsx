@@ -31,9 +31,9 @@ export default function AdminLoyout({
         <Link href={"/"} className="text-decoration-none text-white">
           <div className="flex items-center gap-3 mb-10">
             <div className="bg-white text-black font-bold px-2 py-1 rounded text-lg">
-              JP
+              RP
             </div>
-            <span className="text-xl font-bold tracking-tight">JobPortal</span>
+            <span className="text-xl font-bold tracking-tight">React Pizza</span>
           </div>
         </Link>
 
@@ -44,22 +44,16 @@ export default function AdminLoyout({
 
           {isAdmin ? (
             <nav className="space-y-6">
-              <Link href={"/admin/adminJobs"} className="block text-decoration-none">
+              <Link href={"/admin/adminPizza"} className="block text-decoration-none">
                 <div className="flex items-center gap-3 cursor-pointer text-white hover:text-blue-400 transition">
-                  <span className="text-xl">📋</span>
-                  <span className="font-medium">Jobs</span>
+                  <span className="text-xl">🍕</span>
+                  <span className="font-medium">пицца</span>
                 </div>
               </Link>
-              <Link href={"/admin/createJob"} className="block text-decoration-none">
+              <Link href={"/admin/createPizza"} className="block text-decoration-none">
                 <div className="flex items-center gap-3 cursor-pointer my-3 text-white hover:text-blue-400 transition">
                   <span className="text-xl">➕</span>
-                  <span className="font-medium">Create Job</span>
-                </div>
-              </Link>
-              <Link href={"/admin/aplications"} className="block mt-2 text-decoration-none">
-                <div className="flex items-center gap-3 cursor-pointer text-white hover:text-blue-400 transition">
-                  <span className="text-xl">📩</span>
-                  <span className="font-medium">Applications</span>
+                  <span className="font-medium">добавить пиццу</span>
                 </div>
               </Link>
             </nav>

@@ -4,15 +4,24 @@ import { useState, useEffect } from "react";
 
 interface PizzaItem {
   id: string;
-  name: string;
+  title: string;
   price: number;
-  image: string;
   category: number;
+  imageUrl: string;
+  types: number[]; 
+  sizes: number[]; 
+  rating: number;
 }
 
 interface CategoryItem {
   id: string | number;
   name: string;
+}
+
+interface ApiResponse<T> {
+  status: string;
+  code: number;
+  result: T;
 }
 
 const PizzaPage = () => {
@@ -26,15 +35,18 @@ const PizzaPage = () => {
     const fetchData = async () => {
       try {
         const [resProducts, resCategories] = await Promise.all([
-          fetch("https://68f11ffe0b966ad50035753d.mockapi.io/products"),
-          fetch("https://68f11ffe0b966ad50035753d.mockapi.io/categories"),
+          fetch("https://serve.faux-api.com/f92ae21abaa048e1a243f392/products"),
+          fetch(
+            "https://serve.faux-api.com/f92ae21abaa048e1a243f392/categories",
+          ),
         ]);
 
-        const productsData = await resProducts.json();
-        const categoriesData = await resCategories.json();
+        const productsData: ApiResponse<PizzaItem[]> = await resProducts.json();
+        const categoriesData: ApiResponse<CategoryItem[]> =
+          await resCategories.json();
 
-        setItems(productsData);
-        setCategories([{ id: 0, name: "Все" }, ...categoriesData]);
+        setItems(productsData.result);
+        setCategories([{ id: 0, name: "Все" }, ...categoriesData.result]);
       } catch (error) {
         console.error("Xatolik:", error);
       } finally {
@@ -50,11 +62,11 @@ const PizzaPage = () => {
 
     const newCartItem = {
       id: pizza.id,
-      name: pizza.name,
+      title: pizza.title,
       price: pizza.price,
-      imageUrl: "/image 5.png",
-      type: "Tonkoe",
-      size: 30,
+      imageUrl: pizza.imageUrl, 
+      type: pizza.types[0], 
+      size: pizza.sizes[0], 
       count: 1,
     };
 
@@ -80,11 +92,13 @@ const PizzaPage = () => {
       className="container py-5"
       style={{ fontFamily: "Proxima Nova, system-ui, sans-serif" }}
     >
-      <h2 className="fw-bold mb-4">Все piццы</h2>
+      <h2 className="fw-bold mb-4">Все пиццы</h2>
 
       <div className="row g-4">
         {isLoading ? (
-          <p className="text-center w-100">Yuklanmoqda...</p>
+          <div className="text-center w-100">
+            <p>Yuklanmoqda...</p>
+          </div>
         ) : (
           filteredItems.map((pizza) => (
             <div
@@ -96,14 +110,14 @@ const PizzaPage = () => {
                 style={{ width: "280px" }}
               >
                 <img
-                  src={"/image 5.png"}
-                  alt={pizza.name}
+                  src={pizza.imageUrl}
+                  alt={pizza.title}
                   className="img-fluid mb-3"
                   width={260}
                   height={260}
                 />
                 <h4 className="fw-bold mb-3" style={{ fontSize: "20px" }}>
-                  {pizza.name}
+                  {pizza.title}
                 </h4>
 
                 <div
@@ -111,16 +125,21 @@ const PizzaPage = () => {
                   style={{ backgroundColor: "#f3f3f3" }}
                 >
                   <div className="d-flex gap-1 mb-2">
-                    <button className="btn btn-light p-0 p-1!">Tonkoe</button>
-                    <button className="btn btn-light p-0 p-1!">
+                    <button className="btn btn-light flex-fill p-1">
+                      Tonkoe
+                    </button>
+                    <button className="btn btn-light flex-fill p-1">
                       Traditsionnoe
                     </button>
                   </div>
 
                   <div className="d-flex gap-1">
-                    <button className="btn btn-light">10 cm</button>
-                    <button className="btn btn-light">18 cm</button>
-                    <button className="btn btn-light">34 cm</button>
+                    {/* API dan kelgan o'lchamlarni ko'rsatish */}
+                    {pizza.sizes.map((size) => (
+                      <button key={size} className="btn btn-light flex-fill">
+                        {size} cm
+                      </button>
+                    ))}
                   </div>
                 </div>
 
