@@ -1,22 +1,17 @@
 "use client";
-
 import { useState, useEffect } from "react";
 
 interface CategoryItem {
   id: string | number;
-
   name: string;
 }
 
 const Categories = () => {
   const [categories, setCategories] = useState<CategoryItem[]>([]);
-
   const [activeIndex, setActiveIndex] = useState(0);
 
   const [isOpen, setIsOpen] = useState(false);
-
   const [selectedSort, setSelectedSort] = useState(0);
-
   const sortList = ["популярности", "по цене", "по алфавиту"];
 
   useEffect(() => {
@@ -25,23 +20,18 @@ const Categories = () => {
         const response = await fetch(
           "https://68f11ffe0b966ad50035753d.mockapi.io/categories",
         );
-
         if (!response.ok) throw new Error("Maʼlumot olishda xatolik");
-
         const data: CategoryItem[] = await response.json();
-
         setCategories([{ id: "all", name: "Все" }, ...data]);
       } catch (error) {
         console.error("Xatolik:", error);
       }
     };
-
     fetchCategories();
   }, []);
 
   const onSelectSort = (index: number) => {
     setSelectedSort(index);
-
     setIsOpen(false);
   };
 
@@ -59,13 +49,9 @@ const Categories = () => {
             }`}
             style={{
               borderRadius: "30px",
-
               fontSize: "16px",
-
               backgroundColor: activeIndex === index ? "#282828" : "#f9f9f9",
-
               border: "none",
-
               transition: "background-color 0.2s ease",
             }}
           >
@@ -82,18 +68,13 @@ const Categories = () => {
           ></i>
           Сортировка по:
         </span>
-
         <span
           onClick={() => setIsOpen(!isOpen)}
           style={{
             color: "#fe5f1e",
-
             cursor: "pointer",
-
             fontSize: "14px",
-
             borderBottom: "1px dotted #fe5f1e",
-
             fontWeight: "500",
           }}
         >
@@ -105,13 +86,9 @@ const Categories = () => {
             className="position-absolute shadow-lg bg-white py-2"
             style={{
               top: "35px",
-
               right: 0,
-
               borderRadius: "10px",
-
               zIndex: 100,
-
               width: "160px",
             }}
           >
@@ -123,9 +100,7 @@ const Categories = () => {
                   className={`px-3 py-2 ${selectedSort === i ? "text-danger fw-bold" : ""}`}
                   style={{
                     cursor: "pointer",
-
                     fontSize: "14px",
-
                     backgroundColor:
                       selectedSort === i
                         ? "rgba(254, 95, 30, 0.05)"

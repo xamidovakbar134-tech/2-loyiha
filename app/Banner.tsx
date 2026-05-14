@@ -1,5 +1,5 @@
-const CareerBanner = () => {
+const Banner = () => {
   return <div></div>;
 };
 
-export default CareerBanner;
+export default Banner;

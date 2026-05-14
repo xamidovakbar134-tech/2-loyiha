@@ -24,28 +24,30 @@ const Header = () => {
         </Link>
 
         <div>
-          <button
-            className="btn btn-orange d-flex align-items-center gap-3 px-4 py-2"
-            style={{
-              backgroundColor: "#fe5f1e",
-              color: "white",
-              borderRadius: "30px",
-              fontWeight: "600",
-            }}
-          >
-            <span>520 ₽</span>
-            <div
+          <Link href={"/cart"} className="text-decoration-none">
+            <button
+              className="btn btn-orange d-flex align-items-center gap-3 px-4 py-2"
               style={{
-                width: "1px",
-                height: "20px",
-                backgroundColor: "rgba(255,255,255,0.4)",
+                backgroundColor: "#fe5f1e",
+                color: "white",
+                borderRadius: "30px",
+                fontWeight: "600",
               }}
-            ></div>
-            <div className="d-flex align-items-center gap-2">
-              <i className="bi bi-cart3"></i>
-              <span>3</span>
-            </div>
-          </button>
+            >
+              <span>520 ₽</span>
+              <div
+                style={{
+                  width: "1px",
+                  height: "20px",
+                  backgroundColor: "rgba(255,255,255,0.4)",
+                }}
+              ></div>
+              <div className="d-flex align-items-center gap-2">
+                <i className="bi bi-cart3"></i>
+                <span>3</span>
+              </div>
+            </button>
+          </Link>
         </div>
       </div>
     </header>

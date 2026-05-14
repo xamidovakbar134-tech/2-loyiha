@@ -1,5 +1,6 @@
 import Categories from "./Categories";
 import Header from "./Header";
+import Section from "./Section";
 
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <div>
       <Header />
       <Categories/>
+      <Section/>
     </div>
   );
 }
