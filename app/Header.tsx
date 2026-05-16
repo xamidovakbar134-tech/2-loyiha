@@ -1,7 +1,55 @@
+/* eslint-disable react-hooks/set-state-in-effect */
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const Header = () => {
+type HeaderProps = {
+  totalPrice?: number;
+  totalCount?: number;
+};
+
+type CartItem = {
+  count: number;
+  price: number;
+};
+
+const Header = ({ totalPrice: propsTotalPrice, totalCount: propsTotalCount }: HeaderProps) => {
+  const [cartItems, setCartItems] = useState<CartItem[]>([]);
+
+  useEffect(() => {
+    const data = localStorage.getItem("cart");
+    if (data) {
+      try {
+        setCartItems(JSON.parse(data));
+      } catch (error) {
+        console.error("Savatchani o'qishda xatolik:", error);
+      }
+    }
+
+    const handleStorageChange = () => {
+      const updatedData = localStorage.getItem("cart");
+      if (updatedData) {
+        setCartItems(JSON.parse(updatedData));
+      } else {
+        setCartItems([]);
+      }
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleChange);
+  }, []);
+
+ 
+  const totalCount = propsTotalCount !== undefined 
+    ? propsTotalCount 
+    : cartItems.reduce((sum, item) => sum + (item.count || 0), 0);
+
+  const totalPrice = propsTotalPrice !== undefined 
+    ? propsTotalPrice 
+    : cartItems.reduce((sum, item) => sum + ((item.price || 0) * (item.count || 0)), 0);
+
   return (
     <header className="py-4 border-bottom">
       <div className="container d-flex justify-content-between align-items-center">
@@ -37,7 +85,7 @@ const Header = () => {
                 fontWeight: "600",
               }}
             >
-              <span>520 ₽</span>
+              <span>{totalPrice} ₽</span>
               <div
                 style={{
                   width: "1px",
@@ -47,7 +95,7 @@ const Header = () => {
               ></div>
               <div className="d-flex align-items-center gap-2">
                 <i className="bi bi-cart3"></i>
-                <span>3</span>
+                <span>{totalCount}</span>
               </div>
             </button>
           </Link>
@@ -58,3 +106,7 @@ const Header = () => {
 };
 
 export default Header;
+
+function handleChange(this: Window, ev: StorageEvent) {
+  throw new Error("Function not implemented.");
+}

@@ -102,7 +102,8 @@ export default function CartPage() {
 
   return (
     <div>
-      <Header />
+      <Header totalPrice={totalPrice} totalCount={totalCount} />
+      
       <div
         className="container py-5"
         style={{ fontFamily: "Proxima Nova, sans-serif", maxWidth: "800px" }}
@@ -139,7 +140,7 @@ export default function CartPage() {
                 <div>
                   <h5 className="fw-bold mb-0">{item.title}</h5>
                   <p className="text-muted mb-0">
-                    {item.type === 0 ? "Тонкое" : "Традиционное"} тесто,{" "}
+                    {item.type === 0 ? "Тонкое" : "Традиционное"}  тесто,{" "}
                     {item.size} см.
                   </p>
                 </div>
