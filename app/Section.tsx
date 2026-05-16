@@ -8,8 +8,8 @@ interface PizzaItem {
   price: number;
   category: number;
   imageUrl: string;
-  types: number[]; 
-  sizes: number[]; 
+  types: number[];
+  sizes: number[];
   rating: number;
 }
 
@@ -64,9 +64,9 @@ const PizzaPage = () => {
       id: pizza.id,
       title: pizza.title,
       price: pizza.price,
-      imageUrl: pizza.imageUrl, 
-      type: pizza.types[0], 
-      size: pizza.sizes[0], 
+      imageUrl: pizza.imageUrl,
+      type: pizza.types[0],
+      size: pizza.sizes[0],
       count: 1,
     };
 
