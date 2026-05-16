@@ -65,7 +65,7 @@ const AddPizza = () => {
 
   return (
     <div className="flex-1 p-10 bg-[#f9f9f9] min-h-screen">
-      <h2 className="text-3xl font-bold mb-8">Pitsa Qo`shish</h2>
+      <h2 className="text-3xl font-bold! mb-8">Pitsa Qo`shish</h2>
 
       <form
         onSubmit={handleSubmit}
@@ -83,24 +83,14 @@ const AddPizza = () => {
                 onChange={handleChange}
                 type="text"
                 placeholder="https://..."
-                className="w-full border-2 border-[#fe5f1e] rounded-lg p-3 outline-none focus:ring-2 ring-orange-200"
+                className="w-full border-2 border-[#fe5f1e] rounded-lg! p-2 outline-none focus:ring-2 ring-orange-200"
               />
-              <div className="w-16 h-16 border-2 border-gray-300 rounded-lg flex items-center justify-center bg-gray-50 overflow-hidden">
-                {formData.imageUrl ? (
-                  <img
-                    src={formData.imageUrl}
-                    alt="preview"
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <span className="text-gray-400 text-2xl">🖼️</span>
-                )}
-              </div>
+             
             </div>
           </div>
 
           <div className="col-span-1">
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-gray-700 font-medium! mb-2">
               Pitsa Sarlavhasi
             </label>
             <input
@@ -109,44 +99,44 @@ const AddPizza = () => {
               onChange={handleChange}
               type="text"
               placeholder="Misol: Pishloqli pitsa"
-              className="w-full border-2 border-[#fe5f1e] rounded-lg p-3 outline-none"
+              className="w-full border-2 border-[#fe5f1e] rounded-lg! p-2 outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-gray-700 font-medium! mb-2">
               Pitsa Turlari
             </label>
-            <div className="flex gap-2 p-2 border-2 border-gray-300 rounded-lg min-h-[52px] bg-gray-50">
-              <span className="bg-orange-100 text-[#fe5f1e] px-3 py-1 rounded-md text-sm border border-orange-200">
+            <div className="flex gap-2 p-2 border-2 border-gray-300 rounded-lg! min-h-[52px] bg-gray-50">
+              <span className="bg-orange-100 text-[#fe5f1e] px-10 py-1 rounded-md! text-sm! border border-orange-200">
                 Yupqa va An`anaviy
               </span>
             </div>
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-gray-700 font-medium! mb-2">
               Pitsa O`lchamlari
             </label>
-            <div className="flex gap-2 p-2 border-2 border-gray-300 rounded-lg min-h-[52px] bg-gray-50">
-              <span className="bg-orange-100 text-[#fe5f1e] px-3 py-1 rounded-md text-sm border border-orange-200">
+            <div className="flex gap-2 p-2 border-2 border-gray-300 rounded-lg! min-h-[52px] bg-gray-50">
+              <span className="bg-orange-100 text-[#fe5f1e] px-3 py-1 rounded-md! text-sm! border border-orange-200">
                 26, 30, 40 sm
               </span>
             </div>
           </div>
 
           <div>
-            <label className="block text-gray-700 font-medium mb-2">
+            <label className="block text-gray-700 font-medium! mb-2">
               Pitsa Narxi
             </label>
             <div className="relative">
-              <span className="absolute left-4 top-3.5 text-gray-400">₽</span>
               <input
                 name="price"
                 value={formData.price}
                 onChange={handleChange}
                 type="number"
-                className="w-full border-2 border-[#fe5f1e] rounded-lg p-3 pl-10 outline-none"
+                placeholder="₽"
+                className="w-full border-2 border-[#fe5f1e] rounded-lg! p-2 pl-3 outline-none"
               />
             </div>
           </div>
@@ -159,7 +149,7 @@ const AddPizza = () => {
               name="category"
               value={formData.category}
               onChange={handleChange}
-              className="w-full border-2 border-gray-300 rounded-lg p-3 outline-none bg-white"
+              className="w-full border-2 border-gray-300 rounded-lg p-2 outline-none bg-white"
             >
               <option value={1}>Go`shtli</option>
               <option value={2}>Vegetarian</option>
@@ -182,14 +172,14 @@ const AddPizza = () => {
               type="number"
               max="10"
               min="0"
-              className="w-full border-2 border-gray-300 rounded-lg p-3 outline-none"
+              className="w-full border-2 border-gray-300 rounded-lg! p-2 outline-none"
             />
           </div>
 
           <div className="flex items-end">
             <button
               type="submit"
-              className="w-full bg-[#fe5f1e] text-white font-bold py-4 rounded-xl hover:bg-[#e85416] transition-all shadow-md active:scale-95 cursor-pointer"
+              className="w-full bg-[#fe5f1e] text-white font-bold! py-2 rounded-xl! hover:bg-[#e85416] transition-all! shadow-md! active:scale-95! cursor-pointer"
             >
               Pitsani Saqlash
             </button>
