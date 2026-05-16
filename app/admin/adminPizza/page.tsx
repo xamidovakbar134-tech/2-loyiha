@@ -45,7 +45,8 @@ const AdminPizzas = () => {
         setPizzas(pizzas.filter((pizza) => pizza.id !== id));
         alert("O'chirildi! ✅");
       } catch (error) {
-        alert("O'chirishda xatolik yuz berdi ❌");
+        console.log(error);
+        
       }
     }
   };
