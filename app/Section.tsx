@@ -134,7 +134,6 @@ const PizzaPage = () => {
                   </div>
 
                   <div className="d-flex gap-1">
-                    {/* API dan kelgan o'lchamlarni ko'rsatish */}
                     {pizza.sizes.map((size) => (
                       <button key={size} className="btn btn-light flex-fill">
                         {size} cm

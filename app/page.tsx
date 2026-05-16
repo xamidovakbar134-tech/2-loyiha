@@ -11,7 +11,7 @@ const [activeCategoryId, setActiveCategoryId] = useState("all");
     <div>
       <Header />
       <Categories activeCategoryId={activeCategoryId} 
-  onChangeCategory={(id) => setActiveCategoryId(id)}/>
+  onChangeCategory={(id) => setActiveCategoryId(String(id))}/>
       <Section/>
     </div>
   );
