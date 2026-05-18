@@ -133,13 +133,13 @@ const PizzaPage = () => {
                     </button>
                   </div>
 
-                  <div className="d-flex gap-1">
+                  {/* <div className="d-flex gap-1">
                     {pizza.sizes.map((size) => (
                       <button key={size} className="btn btn-light flex-fill">
                         {size} cm
                       </button>
                     ))}
-                  </div>
+                  </div> */}
                 </div>
 
                 <div className="d-flex align-items-center justify-content-between">
