@@ -5,17 +5,17 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 
 const AdminFullPage = () => {
-  const [email, setEmail] = useState("admin@jobportal.com");
+  const [email, setEmail] = useState("admin@pizza.com");
   const [password, setPassword] = useState("admin123");
   const router = useRouter();
 
   const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (email === "admin@jobportal.com" && password === "admin123") {
+    if (email === "admin@pizza.com" && password === "admin123") {
       localStorage.setItem("isAdmin", "true");
 
-      router.push("/admin/adminJobs");
+      router.push("/admin/adminPizza");
 
       window.location.href = "/admin/adminPizza";
     } else {
@@ -41,9 +41,7 @@ const AdminFullPage = () => {
           <h2 className="text-4xl font-extrabold text-gray-800! mb-2">
             Admin Dashboard
           </h2>
-          <p className="text-gray-500 text-lg">
-            Sign in to manage React Pizza
-          </p>
+          <p className="text-gray-500 text-lg">Sign in to manage React Pizza</p>
         </div>
 
         <div className="bg-white p-10 rounded-2xl shadow-sm border border-gray-100 w-full max-w-lg">
@@ -87,7 +85,7 @@ const AdminFullPage = () => {
           <div className="mt-8 bg-[#f3f0f1] p-3 rounded-xl border border-gray-200/50">
             <p className="font-bold text-gray-800! mb-2">Demo Credentials:</p>
             <div className="text-gray-600! space-y-1!">
-              <p>Email: admin@jobportal.com</p>
+              <p>Email: admin@pizza.com</p>
               <p>Password: admin123</p>
             </div>
           </div>

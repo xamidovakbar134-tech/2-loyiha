@@ -152,12 +152,6 @@ const PizzaPage = () => {
                     style={{ color: "#fe5f1e", borderColor: "#fe5f1e" }}
                   >
                     <span>+ Добавить</span>
-                    <span
-                      className="badge rounded-circle"
-                      style={{ backgroundColor: "#fe5f1e" }}
-                    >
-                      1
-                    </span>
                   </button>
                 </div>
               </div>

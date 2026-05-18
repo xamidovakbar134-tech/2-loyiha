@@ -81,12 +81,6 @@ export default function CartPage() {
             Вероятней всего, вы не заказывали ещё пиццу. <br />
             Для того, чтобы заказать пиццу, перейди на главную страницу.
           </p>
-          <img
-            src="/empty-cart.png"
-            alt="Empty Cart"
-            className="img-fluid mb-5"
-            style={{ maxWidth: "300px" }}
-          />
           <Link href="/">
             <button
               className="btn btn-dark fw-bold px-5 py-3 rounded-pill"
